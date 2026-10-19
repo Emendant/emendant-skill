@@ -1,0 +1,37 @@
+{
+  "name": "emendant",
+  "version": "0.1.0",
+  "description": "Upgrade AI SDKs with Emendant's release evidence: a scan of the code a breaking change affects, patches proved in an isolated copy, and the curated page behind each change.",
+  "author": {
+    "name": "Emendant",
+    "url": "https://emendant.com"
+  },
+  "homepage": "https://emendant.com/docs/",
+  "repository": "https://github.com/Emendant/emendant-skill",
+  "keywords": [
+    "sdk",
+    "upgrade",
+    "migration",
+    "breaking-changes",
+    "ai-sdk",
+    "openai",
+    "anthropic",
+    "langchain"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Emendant",
+    "shortDescription": "Upgrade AI SDKs with release evidence",
+    "longDescription": "Runs the Emendant CLI to find the code an SDK breaking change affects, write patches it proves in an isolated copy, and cite the curated page behind each change.",
+    "developerName": "Emendant",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Upgrade ai to the latest major version with Emendant."
+    ]
+  },
+  "license": "MIT"
+}

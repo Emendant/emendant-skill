@@ -1,0 +1,14 @@
+{
+  "name": "emendant",
+  "owner": {
+    "name": "Emendant",
+    "url": "https://emendant.com"
+  },
+  "plugins": [
+    {
+      "name": "emendant",
+      "source": "./",
+      "description": "Upgrade AI SDKs with Emendant's release evidence: a scan of the code a breaking change affects, patches proved in an isolated copy, and the curated page behind each change."
+    }
+  ]
+}
