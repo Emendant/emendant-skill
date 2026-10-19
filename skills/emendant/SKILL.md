@@ -65,6 +65,13 @@ npx --yes emendant fix --no-color
 
 Use the same `--package` flags as in step 1. This command can take several minutes. It copies the repository, with your edits from step 2, installs the new release in the copy, and runs the repository's own checks there. Do not stop it early.
 
+Emendant runs those checks in its own sandbox. macOS does not let a sandboxed process start a second sandbox, so inside your sandbox Emendant cannot prove a patch. Before you run `fix`, run `echo "${CODEX_SANDBOX:-}${SANDBOX_RUNTIME:-}"`. If it prints nothing, run `fix` as usual. If it prints a value, your commands run in a sandbox. Then request to run `fix`, and only `fix`, outside it. Do not ask in chat first: your agent's approval prompt shows the user the command, and the user approves or declines it there.
+
+- Codex: set `sandbox_permissions` to `"require_escalated"`, with the justification "Emendant proves its patches in its own sandbox, which cannot start inside Codex's sandbox." Do not set a `prefix_rule`.
+- Claude Code: set `dangerouslyDisableSandbox` to `true`, and give the same reason.
+
+Never add `--allow-host-run` to this command. If the user declines, or your agent cannot run a command outside its sandbox (for example, Codex with approvals set to `never`), run `fix` in the sandbox, and read the grades as below.
+
 For each change, show the user the lines Emendant printed: the change id, the patch path, and the grade line. Then explain the grade in plain words:
 
 - `test verified`: the patch was applied in an isolated copy, and the repository's own tests passed there.
@@ -74,7 +81,7 @@ For each change, show the user the lines Emendant printed: the change id, the pa
 
 Run `explain` for each patched change too, and take its `page` link for the summary. The proof also covers your edits from step 2, because they were in the copy. Tell the user that the full report is in `.emendant/report.md`, and that the patches are in `.emendant/patches/`.
 
-If a patch is only `structurally checked`, find the reason in `.emendant/report.md`, on the line that starts "Nothing has compiled or run this code", and tell the user. If the reason is that a sandbox is not usable here, you are probably running inside your own sandbox, and Emendant cannot start its own sandbox inside it. Tell the user that they get the full proof if they run `npx emendant fix` in their own terminal. Do not add `--allow-host-run` yourself.
+If a patch is only `structurally checked`, find the reason in `.emendant/report.md`, on the line that starts "Nothing has compiled or run this code", and tell the user. If the reason is that a sandbox is not usable here, `fix` ran inside your sandbox. Tell the user that they get the full proof if they approve `fix` outside your sandbox, or run `npx emendant fix` in their own terminal. Do not add `--allow-host-run` yourself.
 
 If a patch is `not proved`, do not write that change by hand. Read the reason Emendant gives:
 
