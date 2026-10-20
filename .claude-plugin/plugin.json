@@ -18,5 +18,6 @@
     "anthropic",
     "langchain"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "icon": "./icon.png"
 }

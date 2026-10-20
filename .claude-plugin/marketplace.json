@@ -10,5 +10,6 @@
       "source": "./",
       "description": "Upgrade AI SDKs with Emendant's release evidence: a scan of the code a breaking change affects, patches proved in an isolated copy, and the curated page behind each change."
     }
-  ]
+  ],
+  "description": "Emendant skill for upgrading AI SDKs with release evidence."
 }

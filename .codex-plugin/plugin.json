@@ -21,7 +21,7 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Emendant",
-    "shortDescription": "Upgrade AI SDKs with release evidence",
+    "shortDescription": "Upgrade AI SDKs with evidence",
     "longDescription": "Runs the Emendant CLI to find the code an SDK breaking change affects, write patches it proves in an isolated copy, and cite the curated page behind each change.",
     "developerName": "Emendant",
     "category": "Developer Tools",
@@ -31,7 +31,9 @@
     ],
     "defaultPrompt": [
       "Upgrade ai to the latest major version with Emendant."
-    ]
+    ],
+    "logo": "./assets/icon.png",
+    "composerIcon": "./assets/icon.png"
   },
   "license": "MIT"
 }
