@@ -19,5 +19,9 @@
     "langchain"
   ],
   "license": "MIT",
-  "icon": "./.claude-plugin/icon.png"
+  "icon": "./.claude-plugin/icon.png",
+  "privacyPolicyUrl": "https://emendant.com/privacy/",
+  "documentationUrl": "https://emendant.com/docs/guides/coding-agents/",
+  "supportUrl": "https://emendant.com/contact/",
+  "termsOfServiceUrl": "https://emendant.com/terms/"
 }
